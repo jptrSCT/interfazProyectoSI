@@ -1,68 +1,109 @@
 package controllers;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
+
+import application.MainSI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import utilities.Tools;
 
-public class LoginController implements Initializable
-{
+public class LoginController implements Initializable {
 
-	@ FXML
+	@FXML
 	private AnchorPane anchor;
 
-	@ FXML
+	@FXML
 	private Button btIniciar;
 
-	@ FXML
+	@FXML
 	private ImageView img;
 
-	@ FXML
+	@FXML
 	private ImageView img_2;
 
-	@ FXML
+	@FXML
 	private Hyperlink lPassFgn;
 
-	@ FXML
+	@FXML
 	private Hyperlink llink;
 
-	@ FXML
+	@FXML
 	private TextField tfUsuario;
 
-	@ FXML
+	@FXML
 	private PasswordField pfPass;
 
-	@ FXML
+	@FXML
 	private Label lbMensaje;
 
-	@ FXML
+	@FXML
 	private Label lbPass;
+
+//	private MainSI main;
 
 	Tools t = new Tools();
 
-	@ FXML
-	void iniciarSesion ( ActionEvent e )
-	{
-		t.switchScene(e, "/view/AdministradorView.fxml", "/css/application.css");
+	@FXML
+	void iniciarSesion(ActionEvent e) {
+		// login();
+		if (login() == 1) {
+			t.switchScene(e, "/view/AdministradorView.fxml", "/css/application.css");
+		}
+
+		if (login() == 2) {
+			t.switchScene(e, "/view/ClientesView.fxml", "/css/application.css");
+		}
 	}
 
-	@ Override
-	public void initialize ( URL arg0, ResourceBundle arg1 )
-	{
+	private int login() {
+		String user = tfUsuario.getText();
+		String password = pfPass.getText();
+		if (user.isEmpty() || password.isEmpty()) {
+			showMessage("Notificacion.", "Algun espacio esta vacio.", "Por favor ingrese algo en los capos.",
+					AlertType.ERROR);
+		} else {
+			if (user.equals("Admin") && password.equals("12345")) {
+				showMessage("Notificacion", "Bienvenido Admin.", "Sea bienvenido Administrador.",
+						AlertType.INFORMATION);
+				return 1;
+			} else {
+				if (user.equals("Cliente") && password.equals("12345")) {
+
+					showMessage("Notificacion", "Bienvenido Cliente.", "Sea bienvenido Cliente.",
+							AlertType.INFORMATION);
+					return 2;
+				} else {
+					showMessage("Notificacion", "Datos incorrectos",
+							"No se ha encontrado un usuario con esa informacion.", AlertType.ERROR);
+				}
+			}
+		}
+		return 0;
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
 		imgSetting();
 	}
 
-	private void imgSetting ()
-	{
+	private void imgSetting() {
 		img.setImage(t.cargarImagen("/rsc/argos_logo_blanco.png"));
 		img_2.setImage(t.cargarImagen("/rsc/backg_.jpg"));
 
@@ -73,4 +114,15 @@ public class LoginController implements Initializable
 		img_2.setX((anchor.getPrefWidth() / 2) - 145);
 
 	}
+
+	private void showMessage(String titulo, String header, String contenido, AlertType tipoAlerta) {
+
+		Alert alert = new Alert(tipoAlerta);
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+
+	}
+
 }
