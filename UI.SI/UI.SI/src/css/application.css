@@ -1,0 +1,76 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+AnchorPane
+{
+	-fx-background-color: linear-gradient(to bottom, rgba(251,254,246,1) 0%, rgba(163,224,40,1) 48%, rgba(96,161,26,1) 100%);
+}
+
+Text
+{
+	-fx-font-family: serif;
+	-fx-font-size: 30;
+	-fx-fill: white;
+}
+#txt_1
+{
+	-fx-translate-x: -65;
+}
+
+Label
+{
+	-fx-font-family: serif;
+	-fx-translate-x: -7;
+	-fx-font-size: 14;
+	-fx-text-fill: white;
+}
+
+TextField
+{
+	-fx-border-radius: 0px;
+	-fx-background-radius: 0px;
+}
+PasswordField
+{
+	-fx-border-radius: 0px;
+	-fx-background-radius: 0px;
+}
+
+Hyperlink
+{
+	-fx-font-family: serif;
+	-fx-translate-x: -6.5;
+	-fx-font-size: 13;
+	-fx-text-fill: white;
+}
+
+Rectangle
+{
+	-fx-fill: #a3e028;
+	-fx-fill: linear-gradient(to bottom, rgba(126,179,29,1) 28%, rgba(106,149,60,1) 89%);
+	-fx-arc-height: 125;
+	-fx-arc-width: 85;
+}
+#login
+{
+	-fx-fill: linear-gradient(to bottom, rgba(126,179,29,1) 28%, rgba(106,149,60,1) 89%);
+}
+#logo
+{
+	/*-fx-fill: linear-gradient(to bottom, rgba(251,254,246,1) 0%, rgba(163,224,40,1) 48%, rgba(96,161,26,1) 100%);*/
+}
+
+Button
+{
+	-fx-background-radius: 0px;
+	-fx-border-radius: 0px;
+	-fx-background-color: white;
+}
+Button:hover
+{
+	-fx-background-color: #60a11a;
+	-fx-text-fill: white;
+}
+
+ImageView
+{
+	
+}
