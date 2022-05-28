@@ -3,14 +3,14 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import utilities.Tools;
+import utilities.Load;
 
 public class ClienteController {
 	
 	@FXML
     private Button clienteCRMbtn;
 	
-	Tools t = new Tools();
+	Load t = new Load();
 	
 	  @FXML
 	    void actualizarEscenaCliente(ActionEvent e) {

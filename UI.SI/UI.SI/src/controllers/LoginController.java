@@ -14,7 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import utilities.Tools;
+import utilities.Animations;
+import utilities.Load;
 
 public class LoginController implements Initializable
 {
@@ -63,7 +64,7 @@ public class LoginController implements Initializable
 
 	// private MainSI main;
 
-	Tools t = new Tools();
+	Load t = new Load();
 
 	@ FXML
 	void iniciarSesion ( ActionEvent e )
@@ -87,8 +88,12 @@ public class LoginController implements Initializable
 		if ( user.isEmpty() || password.isEmpty() )
 		{
 			lblInfo.setText("¡Campos vacíos!");
+			lblInfo.setStyle("-fx-text-fill: black;");
 			tfUsuario.setStyle("-fx-border-color: red");
 			pfPass.setStyle("-fx-border-color: red");
+			Animations.shakeAnimation(lblInfo);
+			Animations.shakeAnimation(tfUsuario);
+			Animations.shakeAnimation(pfPass);
 
 		} else
 		{
@@ -103,8 +108,10 @@ public class LoginController implements Initializable
 			} else
 			{
 				lblInfo.setText("¡Datos Incorrectos!");
+				lblInfo.setStyle("-fx-text-fill: black;");
 				tfUsuario.setStyle("-fx-border-color: red");
 				pfPass.setStyle("-fx-border-color: red");
+				Animations.shakeAnimation(lblInfo);
 			}
 		}
 		return 0;
@@ -113,40 +120,49 @@ public class LoginController implements Initializable
 	@ Override
 	public void initialize ( URL arg0, ResourceBundle arg1 )
 	{
-		hide(0);
+		hide();
 		imgSetting();
 	}
 
 	@ FXML
 	void ini ( ActionEvent event )
 	{
-		hide(100);
+		// hide(100);
 		btini.setOpacity(0);
+		Animations.fadeAnimationIn(rec);
+		Animations.fadeAnimationIn(lbUser);
+		Animations.fadeAnimationIn(lbPass);
+		Animations.fadeAnimationIn(tfUsuario);
+		Animations.fadeAnimationIn(pfPass);
+		Animations.fadeAnimationIn(btIniciar);
+		Animations.fadeAnimationIn(lPassFgn);
+		Animations.fadeAnimationIn(txtIni);
+		btini.setDisable(true);
 	}
 
 	private void imgSetting ()
 	{
 		img.setImage(t.cargarImagen("/rsc/argos_logo_blanco.png"));
 		img_2.setImage(t.cargarImagen("/rsc/backg_.jpg"));
-
 		// img_2.setTranslateX(250);
 		img_2.setTranslateY(-35);
 		img_2.setScaleX(3.5);
 		img_2.setScaleY(3.5);
+		img_2.setOpacity(0.9);
 		img_2.setX((anchor.getPrefWidth() / 2) - 145);
 
 	}
 
-	private void hide ( int i )
+	private void hide ()
 	{
-		rec.setOpacity(i);
-		lbUser.setOpacity(i);
-		lbPass.setOpacity(i);
-		txtIni.setOpacity(i);
-		tfUsuario.setOpacity(i);
-		pfPass.setOpacity(i);
-		btIniciar.setOpacity(i);
-		lPassFgn.setOpacity(i);
+		rec.setOpacity(0);
+		lbUser.setOpacity(0);
+		lbPass.setOpacity(0);
+		txtIni.setOpacity(0);
+		tfUsuario.setOpacity(0);
+		pfPass.setOpacity(0);
+		btIniciar.setOpacity(0);
+		lPassFgn.setOpacity(0);
 	}
 
 }
