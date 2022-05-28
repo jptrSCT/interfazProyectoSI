@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+   <children>
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="264.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img_1" fitHeight="150.0" fitWidth="200.0" layoutX="290.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <Reflection />
+         </effect></ImageView>
+      <Button layoutX="33.0" layoutY="228.0" mnemonicParsing="false" onAction="#Produccion" prefHeight="25.0" prefWidth="117.0" text="Producción" />
+      <Button layoutX="578.0" layoutY="228.0" mnemonicParsing="false" onAction="#administracion" prefHeight="25.0" prefWidth="118.0" text="Administración" />
+      <Button layoutX="118.0" layoutY="178.0" mnemonicParsing="false" onAction="#recursosHumanos" text="Recursos Humanos" />
+      <Button layoutX="578.0" layoutY="310.0" mnemonicParsing="false" onAction="#comercial" prefHeight="25.0" prefWidth="118.0" text="Comercial" />
+      <Button layoutX="33.0" layoutY="310.0" mnemonicParsing="false" onAction="#crm" prefHeight="25.0" prefWidth="117.0" text="CRM" />
+      <Button layoutX="118.0" layoutY="367.0" mnemonicParsing="false" onAction="#financiacion" prefHeight="25.0" prefWidth="118.0" text="Financiación" />
+      <Button layoutX="490.0" layoutY="367.0" mnemonicParsing="false" onAction="#inventario" prefHeight="25.0" prefWidth="117.0" text="Inventarios" />
+      <Button layoutX="8.0" layoutY="503.0" mnemonicParsing="false" onAction="#actualizarEscena" text="act" />
+      <Button layoutX="490.0" layoutY="178.0" mnemonicParsing="false" onAction="#ti" prefHeight="25.0" prefWidth="117.0" text="T.I." />
+      <Rectangle id="headerform" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="-32.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="778.0" />
+      <Label id="header" layoutY="71.0" prefHeight="17.0" prefWidth="728.0" text="Bienvenido" />
+      <Button layoutX="627.0" layoutY="503.0" mnemonicParsing="false" onAction="#cerrar" text="Cerrar Sesión" />
+   </children>
+</AnchorPane>
